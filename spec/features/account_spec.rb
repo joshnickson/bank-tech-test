@@ -5,8 +5,13 @@ describe Account do
 
   describe 'Deposit funds' do
     it 'allows user to deposit funds' do
-      account.deposit(1000)
-      expect(account.balance).to eq 1000
+      expect { account.deposit(100) }.to change { account.balance }.by(100)
+    end
+  end
+
+  describe 'Withdraw funds' do
+    it 'allows user to withdraw funds' do
+      expect { account.withdraw(100) }.to change { account.balance }.by(-100)
     end
   end
 
