@@ -1,5 +1,4 @@
 class Account
-
   attr_accessor :balance
 
   def initialize
@@ -9,5 +8,4 @@ class Account
   def deposit(amount)
     @balance += amount
   end
-
 end
