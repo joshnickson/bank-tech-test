@@ -1,7 +1,9 @@
 require 'account'
+require 'account_history'
 
 describe 'Account feature tests' do
-  let(:account) { Account.new }
+  let(:account_history) { AccountHistory.new }
+  let(:account) { Account.new(account_history) }
 
   it 'allows user to deposit funds' do
     account.deposit(1000)
@@ -14,9 +16,9 @@ describe 'Account feature tests' do
   it 'stores a history of user actions' do
     account.deposit(1000)
     account.withdraw(800)
-    expect(account.history.length).to eq(2)
-    expect(account.history.first[:credit]).to eq(1000)
-    expect(account.history.last[:debit]).to eq(800)
+    expect(account_history.history.length).to eq(2)
+    expect(account_history.history.first[:credit]).to eq(1000)
+    expect(account_history.history.last[:debit]).to eq(800)
     expect(account.balance).to eq(200)
   end
 end

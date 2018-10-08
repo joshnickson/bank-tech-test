@@ -1,7 +1,8 @@
 require 'account'
 
 describe Account do
-  let(:account) { described_class.new }
+  let(:history) { double :history, log_deposit: nil, log_withdrawal: nil }
+  let(:account) { described_class.new(history) }
 
   describe '#deposit' do
     it 'adds amount to balance' do

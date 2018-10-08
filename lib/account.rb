@@ -1,17 +1,17 @@
 class Account
-  attr_reader :balance, :history
-  def initialize
+  attr_reader :balance, :account_history
+  def initialize(history)
     @balance = 0
-    @history = []
+    @account_history = history
   end
 
   def deposit(amount)
     @balance += amount
-    @history << { credit: amount, balance: @balance }
+    @account_history.log_deposit(amount, @balance)
   end
 
   def withdraw(amount)
     @balance -= amount
-    @history << { debit: amount, balance: @balance }
+    @account_history.log_withdrawal(amount, @balance)
   end
 end
