@@ -5,19 +5,13 @@ class AccountHistory
   end
 
   def log_deposit(amount, balance)
-    @history << {
-      date: Time.now.strftime('%d-%m-%y'),
-      credit: amount,
-      balance: balance
-    }
+    log_default(balance)
+    @history.last[:credit] = amount
   end
 
   def log_withdrawal(amount, balance)
-    @history << {
-      date: Time.now.strftime('%d-%m-%y'),
-      debit: amount,
-      balance: balance
-    }
+    log_default(balance)
+    @history.last[:debit] = amount
   end
 
   def show_statement
@@ -31,12 +25,17 @@ class AccountHistory
         ].join(' || ')
       end
   end
-  
+
   private
-    
-    def print_float(value)
-      '%.2f' % value unless value == nil
-    end
+
+  def log_default(balance)
+    @history << {
+      date: Time.now.strftime('%d-%m-%y'),
+      balance: balance
+    }
+  end
+
+  def print_float(value)
+    format('%.2f', value) unless value.nil?
+  end
 end
-
-
