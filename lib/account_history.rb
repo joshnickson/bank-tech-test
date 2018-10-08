@@ -25,10 +25,18 @@ class AccountHistory
       @history.reverse.map do |item|
         [
           item[:date],
-          item[:credit],
-          item[:debit],
-          item[:balance]
+          print_float(item[:credit]),
+          print_float(item[:debit]),
+          print_float(item[:balance])
         ].join(' || ')
       end
   end
+  
+  private
+    
+    def print_float(value)
+      '%.2f' % value unless value == nil
+    end
 end
+
+

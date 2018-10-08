@@ -21,5 +21,4 @@ describe AccountHistory do
         .to eq [:date, '01-01-01', :debit, 100, :balance, 400]
     end
   end
-  
 end
