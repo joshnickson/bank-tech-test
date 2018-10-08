@@ -14,4 +14,8 @@ class Account
     @balance -= amount
     @account_history.log_withdrawal(amount, @balance)
   end
+
+  def view_statement
+    puts @account_history.show_statement
+  end
 end

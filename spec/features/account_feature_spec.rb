@@ -1,7 +1,7 @@
 require 'account'
 require 'account_history'
 
-describe 'Account feature tests' do
+describe 'Bank feature tests' do
   let(:account_history) { AccountHistory.new }
   let(:account) { Account.new(account_history) }
 
@@ -19,6 +19,13 @@ describe 'Account feature tests' do
     expect(account_history.history.length).to eq(2)
     expect(account_history.history.first[:credit]).to eq(1000)
     expect(account_history.history.last[:debit]).to eq(800)
-    expect(account.balance).to eq(200)
+  end
+  it 'shows a bank statement of user actions' do
+    account.deposit(1000)
+    account.withdraw(800)
+    statement = "date || credit || debit || balance\n"\
+                "08-10-18 || 1000 ||  || 1000\n"\
+                "08-10-18 ||  || 800 || 200\n"
+    expect { account.view_statement }.to output(statement).to_stdout
   end
 end
