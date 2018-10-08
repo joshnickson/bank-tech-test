@@ -17,5 +17,5 @@ I would like to be able to see how much money I currently have
 
 As a client
 So that I can keep on track of my finances
-I would like to view a bank statement in chronological order
+I would like to view a bank statement in reverse chronological order
 ```

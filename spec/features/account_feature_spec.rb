@@ -24,8 +24,9 @@ describe 'Bank feature tests' do
     account.deposit(1000)
     account.withdraw(800)
     statement = "date || credit || debit || balance\n"\
+                "08-10-18 ||  || 800 || 200\n"\
                 "08-10-18 || 1000 ||  || 1000\n"\
-                "08-10-18 ||  || 800 || 200\n"
+                
     expect { account.view_statement }.to output(statement).to_stdout
   end
 end

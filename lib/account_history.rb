@@ -22,7 +22,7 @@ class AccountHistory
 
   def show_statement
     ['date || credit || debit || balance'] +
-      @history.map do |item|
+      @history.reverse.map do |item|
         [
           item[:date],
           item[:credit],
