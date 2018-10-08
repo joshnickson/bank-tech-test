@@ -28,4 +28,14 @@ describe 'Bank feature tests' do
                 "01-01-2001 || 1000.00 ||  || 1000.00\n"
     expect { account.view_statement }.to output(statement).to_stdout
   end
+  it 'throws error if user tries to deposit invalid amount' do
+    expect { account.deposit(-5) }
+      .to raise_error('amount must be greater than zero')
+    expect(account.account_history.history.empty?).to eq(true)
+  end
+  it 'throws error if user tries to withdraw invalid amount' do
+    expect { account.withdraw(-10) }
+      .to raise_error('amount must be greater than zero')
+    expect(account.account_history.history.empty?).to eq(true)
+  end
 end

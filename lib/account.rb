@@ -6,16 +6,24 @@ class Account
   end
 
   def deposit(amount)
+    check_valid(amount)
     @balance += amount
     @account_history.log_deposit(amount, @balance)
   end
 
   def withdraw(amount)
+    check_valid(amount)
     @balance -= amount
     @account_history.log_withdrawal(amount, @balance)
   end
 
   def view_statement
     puts @account_history.show_statement
+  end
+
+  private
+
+  def check_valid(amount)
+    raise 'amount must be greater than zero' if amount <= 0
   end
 end
