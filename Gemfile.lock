@@ -17,6 +17,7 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.10.0)
+    timecop (0.9.1)
     unicode-display_width (1.4.0)
 
 PLATFORMS
@@ -24,6 +25,7 @@ PLATFORMS
 
 DEPENDENCIES
   rubocop
+  timecop
 
 BUNDLED WITH
    1.16.3
