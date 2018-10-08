@@ -14,5 +14,4 @@ describe Account do
       expect { account.withdraw(100) }.to change { account.balance }.by(-100)
     end
   end
-
 end
