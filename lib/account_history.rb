@@ -30,7 +30,7 @@ class AccountHistory
 
   def log_default(balance)
     @history << {
-      date: Time.now.strftime('%d-%m-%y'),
+      date: Time.now.strftime('%d-%m-%Y'),
       balance: balance
     }
   end
