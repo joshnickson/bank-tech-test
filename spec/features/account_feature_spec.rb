@@ -11,11 +11,11 @@ describe 'Account feature tests' do
     account.withdraw(1000)
     expect(account.balance).to eq(-1000)
   end
-  it 'stores a history of user actions' do 
+  it 'stores a history of user actions' do
     account.deposit(1000)
     account.withdraw(800)
     expect(account.history.length).to eq(2)
-    expect(account.history.first[:credit]).to eq(1000)  
+    expect(account.history.first[:credit]).to eq(1000)
     expect(account.history.last[:debit]).to eq(800)
     expect(account.balance).to eq(200)
   end

@@ -7,11 +7,11 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    @history << {credit: amount, balance: @balance}
+    @history << { credit: amount, balance: @balance }
   end
 
   def withdraw(amount)
     @balance -= amount
-    @history << {debit: amount, balance: @balance}
+    @history << { debit: amount, balance: @balance }
   end
 end
