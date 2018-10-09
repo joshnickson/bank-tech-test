@@ -1,7 +1,8 @@
 require 'account_history'
 
 describe AccountHistory do
-  let(:account_history) { described_class.new }
+  let(:printer) { double :printer, print_statement: 'statement' }
+  let(:account_history) { described_class.new(printer) }
 
   describe '#log_deposit' do
     it 'adds deposit information to history' do
@@ -16,6 +17,12 @@ describe AccountHistory do
       account_history.log_withdrawal(100, 400)
       expect(account_history.history.last.flatten)
         .to eq [:date, '01-01-2001', :balance, 400, :debit, 100]
+    end
+  end
+
+  describe '#show_statement' do
+    it 'returns bank statement from printer module' do
+      expect(account_history.show_statement).to eq('statement')
     end
   end
 end
