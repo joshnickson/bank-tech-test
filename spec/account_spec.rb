@@ -1,7 +1,7 @@
 require 'account'
 
 describe Account do
-  let(:history) { double :history, log_deposit: nil, log_withdrawal: nil }
+  let(:history) { double :history, log_deposit: nil, log_withdrawal: nil, show_statement: "statement" }
   let(:account) { described_class.new(history) }
   
   describe '#new' do
@@ -26,5 +26,9 @@ describe Account do
     end
   end
 
-  describe '#'
+  describe '#view_statement' do
+    it 'prints bank statement to the console' do
+      expect { account.view_statement }.to output("statement\n").to_stdout 
+    end
+  end 
 end
