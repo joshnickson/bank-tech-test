@@ -8,8 +8,7 @@ describe 'Withdrawal feature tests' do
     account.deposit(1000)
     account.withdraw(800)
     expect(account_history.history.length).to eq(2)
-    expect(account_history.history.first[:credit]).to eq(1000)
-    expect(account_history.history.last[:debit]).to eq(800)
+    expect(account.balance).to eq(200)
   end
   it 'shows a bank statement of user actions' do
     account.deposit(1000)
