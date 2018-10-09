@@ -8,13 +8,19 @@ class AccountHistory
   end
 
   def log_deposit(amount, balance)
-    log_default(balance)
-    @history.last[:credit] = amount
+    @history << {
+      date: current_date,
+      balance: balance,
+      credit: amount
+    }
   end
 
   def log_withdrawal(amount, balance)
-    log_default(balance)
-    @history.last[:debit] = amount
+    @history << {
+      date: current_date,
+      balance: balance,
+      debit: amount
+    }
   end
 
   def show_statement
@@ -23,10 +29,7 @@ class AccountHistory
 
   private
 
-  def log_default(balance)
-    @history << {
-      date: Time.now.strftime('%d-%m-%Y'),
-      balance: balance
-    }
+  def current_date
+    Time.now.strftime('%d-%m-%Y')
   end
 end
