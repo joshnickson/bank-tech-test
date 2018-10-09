@@ -1,7 +1,10 @@
+require_relative 'printer'
+
 class AccountHistory
   attr_reader :history
-  def initialize
+  def initialize(printer = StatementPrinter)
     @history = []
+    @printer = printer
   end
 
   def log_deposit(amount, balance)
@@ -15,15 +18,7 @@ class AccountHistory
   end
 
   def show_statement
-    ['date || credit || debit || balance'] +
-      @history.reverse.map do |item|
-        [
-          item[:date],
-          print_float(item[:credit]),
-          print_float(item[:debit]),
-          print_float(item[:balance])
-        ].join(' || ')
-      end
+    @printer.print_statement(@history)
   end
 
   private
@@ -33,9 +28,5 @@ class AccountHistory
       date: Time.now.strftime('%d-%m-%Y'),
       balance: balance
     }
-  end
-
-  def print_float(value)
-    format('%.2f', value) unless value.nil?
   end
 end

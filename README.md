@@ -59,6 +59,9 @@ date || credit || debit || balance
 
 Great! Just as we expected. 
 
+### Domain Model
+
+
 ### Testing
 
 The app was developed test-first with feature tests and unit tests using RSpec. Using the RED-GREEN-REFACTOR process, I implemented features incrementally using the user stories as a guide to implement the minimum functionality to satisfy the project requirements.

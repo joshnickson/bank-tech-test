@@ -1,3 +1,5 @@
+require_relative 'account_history'
+
 class Account
   attr_reader :balance, :account_history
   def initialize(history = AccountHistory.new)
