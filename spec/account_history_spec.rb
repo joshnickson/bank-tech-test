@@ -1,5 +1,4 @@
 require 'account_history'
-require 'timecop'
 
 describe AccountHistory do
   let(:account_history) { described_class.new }

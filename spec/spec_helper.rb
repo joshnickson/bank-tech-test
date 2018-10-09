@@ -15,6 +15,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'simplecov'
 require 'simplecov-console'
+require 'timecop'
 
 SimpleCov.start
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
