@@ -1,6 +1,6 @@
 class Account
   attr_reader :balance, :account_history
-  def initialize(history)
+  def initialize(history = AccountHistory.new)
     @balance = 0
     @account_history = history
   end
@@ -13,6 +13,7 @@ class Account
 
   def withdraw(amount)
     check_valid(amount)
+    check_funds(amount)
     @balance -= amount
     @account_history.log_withdrawal(amount, @balance)
   end
@@ -24,6 +25,10 @@ class Account
   private
 
   def check_valid(amount)
-    raise 'amount must be greater than zero' if amount <= 0
+    raise 'Amount must be greater than zero' if amount <= 0
+  end
+
+  def check_funds(amount)
+    raise 'Insufficient funds' if @balance - amount < 0
   end
 end

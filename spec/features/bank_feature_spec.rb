@@ -10,8 +10,9 @@ describe 'Bank feature tests' do
     expect(account.balance).to eq(1000)
   end
   it 'allows user to withdraw funds' do
+    account.deposit(1000)
     account.withdraw(1000)
-    expect(account.balance).to eq(-1000)
+    expect(account.balance).to eq(0)
   end
   it 'stores a history of user actions' do
     account.deposit(1000)
@@ -30,12 +31,17 @@ describe 'Bank feature tests' do
   end
   it 'throws error if user tries to deposit invalid amount' do
     expect { account.deposit(-5) }
-      .to raise_error('amount must be greater than zero')
+      .to raise_error('Amount must be greater than zero')
     expect(account.account_history.history.empty?).to eq(true)
   end
   it 'throws error if user tries to withdraw invalid amount' do
     expect { account.withdraw(-10) }
-      .to raise_error('amount must be greater than zero')
+      .to raise_error('Amount must be greater than zero')
     expect(account.account_history.history.empty?).to eq(true)
+  end
+  it 'throws error if user has insufficient funds' do
+    account.deposit(100)
+    expect { account.withdraw(101) }
+      .to raise_error('Insufficient funds')
   end
 end
