@@ -1,7 +1,7 @@
 require_relative 'printer'
 
 class AccountHistory
-  attr_reader :history
+  attr_reader :history, :printer
   def initialize(printer = StatementPrinter)
     @history = []
     @printer = printer
@@ -29,7 +29,7 @@ class AccountHistory
 
   private
 
-  def current_date
-    Time.now.strftime('%d-%m-%Y')
-  end
+    def current_date
+      Time.now.strftime('%d-%m-%Y')
+    end
 end

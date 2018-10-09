@@ -4,6 +4,15 @@ describe AccountHistory do
   let(:printer) { double :printer, print_statement: 'statement' }
   let(:account_history) { described_class.new(printer) }
 
+  describe '#new' do
+    it 'instantiates with empty array for history log' do
+      expect(account_history.history).to eq([])
+    end
+    it 'instantiates with printer' do
+      expect(account_history.printer).to eq(printer)
+    end
+  end
+
   describe '#log_deposit' do
     it 'adds deposit information to history' do
       account_history.log_deposit(100, 200)
