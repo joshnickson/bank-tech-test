@@ -13,4 +13,8 @@ describe 'Withdrawal feature tests' do
       .to raise_error('Amount must be greater than zero')
     expect(account_history.history.empty?).to eq(true)
   end
+  it 'throws error unless user enters a number' do
+    expect { account.deposit('cash') }
+      .to raise_error('Please enter a valid amount')
+  end
 end

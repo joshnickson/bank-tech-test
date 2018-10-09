@@ -25,6 +25,7 @@ class Account
   private
 
   def check_valid(amount)
+    raise 'Please enter a valid amount' unless amount.is_a? Numeric
     raise 'Amount must be greater than zero' if amount <= 0
   end
 
