@@ -2,8 +2,8 @@ require 'account'
 require 'account_history'
 
 describe 'Bank feature tests' do
-  let(:account_history) { AccountHistory.new }
-  let(:account) { Account.new(account_history) }
+  let(:account) { Account.new }
+  let(:account_history) { account.account_history }
 
   it 'allows user to deposit funds' do
     account.deposit(1000)
@@ -32,12 +32,12 @@ describe 'Bank feature tests' do
   it 'throws error if user tries to deposit invalid amount' do
     expect { account.deposit(-5) }
       .to raise_error('Amount must be greater than zero')
-    expect(account.account_history.history.empty?).to eq(true)
+    expect(account_history.history.empty?).to eq(true)
   end
   it 'throws error if user tries to withdraw invalid amount' do
     expect { account.withdraw(-10) }
       .to raise_error('Amount must be greater than zero')
-    expect(account.account_history.history.empty?).to eq(true)
+    expect(account_history.history.empty?).to eq(true)
   end
   it 'throws error if user has insufficient funds' do
     account.deposit(100)
