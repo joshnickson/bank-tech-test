@@ -60,7 +60,30 @@ date || credit || debit || balance
 Great! Just as we expected. 
 
 ### Domain Model
-
+```
+U S E R
+╔════════════╗              
+║  Terminal  ║  Interaction with bank app via REPL              
+╚════════════╝
+      |
+      |
+      |                                   
+╔════════════╗     
+║            ║  - Holds balance  
+║   ACCOUNT  ║  - Responsiblefor adding and subtracting from balance
+║            ║  - view_statement method can be called to print statement for current account 
+╚════════════╝      
+       |             ╔═════════════════╗
+       |             ║                 ║ - Logs a record of each deposit/withrawal       
+       |------------>║ ACCOUNT HISTORY ║ - Stores a hash of all previous user activity
+                     ║                 ║ 
+                     ╚═════════════════╝ 
+                              |                ╔════════════╗ 
+                              |                ║            ║ - Module; no state
+                              |--------------->║   PRINTER  ║ - Responsible for printing the statement in table format
+                                               ║            ║ - Shows amounts to 2 d.p.
+                                               ╚════════════╝ 
+```                
 
 ### Testing
 
