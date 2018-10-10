@@ -8,15 +8,6 @@ describe Account do
   end
   let(:account) { described_class.new(history) }
 
-  describe '#new' do
-    it 'instantiates with balance of zero' do
-      expect(account.balance).to eq 0
-    end
-    it 'instantiates with new instance of account history' do
-      expect(account.account_history).to eq(history)
-    end
-  end
-
   describe '#deposit' do
     it 'adds amount to balance' do
       expect { account.deposit(100) }.to change { account.balance }.by(100)
