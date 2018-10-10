@@ -2,7 +2,7 @@
 ```
 ____________________________________
 |#######=====================#######|
-|#(1)*****BANK OF TECH TEST****(1) #|
+|#(1)*****BANK OF TECH TEST*****(1)#|
 |#**          /===\   ********   **#|
 |*# {G}      | (") |              #*|
 |#*  ******  | /v\ |    O N E     *#|
@@ -12,13 +12,13 @@ ____________________________________
 ```
 Command line Ruby app that allows users to deposit and withdraw funds. Additionally, users can view a statement of their user history.
 
-### How to Use
+## How to Use
 - Clone this repo to your machine
 - Run `bundle install` to install gem dependencies
 - In your terminal run `ruby bank_test.rb` 
 - You can now interact with the bank via the command line
 
-**Example usage:**
+### Example usage:
 
 Let's start by creating a new account.
 ```
@@ -59,9 +59,9 @@ date || credit || debit || balance
 
 Great! Just as we expected. 
 
-### Domain Model
+## Domain Model
 ```
-U S E R
+   U S E R
 ╔════════════╗              
 ║  Terminal  ║  Interaction with bank app via REPL              
 ╚════════════╝
@@ -85,7 +85,7 @@ U S E R
                                                ╚════════════╝ 
 ```                
 
-### Testing
+## Testing
 
 The app was developed test-first with feature tests and unit tests using RSpec. Using the RED-GREEN-REFACTOR process, I implemented features incrementally using the user stories as a guide to implement the minimum functionality to satisfy the project requirements.
 
@@ -95,7 +95,7 @@ The app was developed test-first with feature tests and unit tests using RSpec. 
 - `rubopcop` linter gem used to ensure consistant code formatting helping with readabilty
 
 
-### User Stories
+## User Stories
 
 ```
 As a client
@@ -108,7 +108,7 @@ I would like to withdraw money from the bank
 
 As a client
 So that I can be reminded of how little money I have
-I would like to be able to see how much money I currently have
+I would like to be able to see my account balance
 
 As a client
 So that I can keep on track of my finances
