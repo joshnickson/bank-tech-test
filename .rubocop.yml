@@ -3,3 +3,6 @@ inherit_from: .rubocop_todo.yml
 Documentation:
   Enabled: false
   
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/*'
