@@ -4,12 +4,6 @@ describe 'Withdrawal feature tests' do
   let(:account) { Account.new }
   let(:account_history) { account.account_history }
 
-  it 'stores a history of user actions' do
-    account.deposit(1000)
-    account.withdraw(800)
-    expect(account_history.history.length).to eq(2)
-    expect(account.balance).to eq(200)
-  end
   it 'shows a bank statement of user actions' do
     account.deposit(1000)
     account.withdraw(800)

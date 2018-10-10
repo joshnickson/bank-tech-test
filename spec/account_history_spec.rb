@@ -6,16 +6,14 @@ describe AccountHistory do
 
   describe '#log_deposit' do
     it 'adds deposit information to history' do
-      account_history.log_deposit(100, 200)
-      expect(account_history.history.last.flatten)
+      expect(account_history.log_deposit(100, 200).last.flatten)
         .to eq [:date, '01-01-2001', :balance, 200, :credit, 100]
     end
   end
 
   describe '#log_withdrawal' do
     it 'adds withdrawal information to history' do
-      account_history.log_withdrawal(100, 400)
-      expect(account_history.history.last.flatten)
+      expect(account_history.log_withdrawal(100, 400).last.flatten)
         .to eq [:date, '01-01-2001', :balance, 400, :debit, 100]
     end
   end

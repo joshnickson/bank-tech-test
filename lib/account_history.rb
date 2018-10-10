@@ -1,7 +1,6 @@
 require_relative 'printer'
 
 class AccountHistory
-  attr_reader :history, :printer
   def initialize(printer = StatementPrinter)
     @history = []
     @printer = printer
