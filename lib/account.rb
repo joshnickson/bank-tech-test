@@ -1,7 +1,7 @@
 require_relative 'account_history'
 
 class Account
-  attr_reader :balance, :account_history
+  attr_reader :balance
   def initialize(history = AccountHistory.new)
     @balance = 0
     @account_history = history

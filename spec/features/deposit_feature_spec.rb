@@ -2,7 +2,6 @@ require 'account'
 
 describe 'Withdrawal feature tests' do
   let(:account) { Account.new }
-  let(:account_history) { account.account_history }
 
   it 'allows user to deposit funds' do
     account.deposit(1000)
